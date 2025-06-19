@@ -1,13 +1,35 @@
 // src/pages/Menu/Menu.tsx
+import menuItems from '../../data/menuItems.json';
+
 const Menu = () => {
   return (
-    <div className="h-full">
-      <h1 className="text-3xl font-bold mb-4 text-blue-600">🍽️ Menu Page</h1>
-      <p className="text-gray-600 mb-2">Here’s a long menu...</p>
-      <div className="space-y-2">
-        {Array.from({ length: 50 }).map((_, i) => (
-          <div key={i} className="p-2 border rounded bg-white shadow">
-            Menu Item {i + 1}
+    <div>
+      <h1 className="text-3xl font-bold mb-6">🍽️ Our Menu</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {menuItems.map((item) => (
+          <div
+            key={item.id}
+            className="bg-white rounded-xl shadow-md overflow-hidden"
+          >
+            <img
+              src={item.image}
+              alt={item.name}
+              className="h-48 w-full object-cover"
+            />
+            <div className="p-4">
+              <h2 className="text-xl font-semibold text-gray-800">
+                {item.name}
+              </h2>
+              <p className="text-gray-600 text-sm mt-1">{item.description}</p>
+              <div className="mt-4 flex justify-between items-center">
+                <span className="text-lg font-bold text-green-600">
+                  ${item.price.toFixed(2)}
+                </span>
+                <button className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
           </div>
         ))}
       </div>
