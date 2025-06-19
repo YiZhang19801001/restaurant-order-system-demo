@@ -4,9 +4,9 @@ import Header from './Header';
 
 const Layout = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen w-full">
       <Header />
-      <main style={{ padding: '1rem' }}>
+      <main className="flex-1 overflow-auto p-4 bg-gray-50">
         <Outlet />
       </main>
     </div>

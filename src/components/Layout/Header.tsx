@@ -3,14 +3,20 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header
-      style={{ padding: '1rem', background: '#eee', marginBottom: '1rem' }}
-    >
-      <nav style={{ display: 'flex', gap: '1rem' }}>
-        <Link to="/">🏠 Home</Link>
-        <Link to="/menu">🍽️ Menu</Link>
-        <Link to="/cart">🛒 Cart</Link>
-        <Link to="/success">✅ Success</Link>
+    <header className="bg-white shadow-md p-4 sticky top-0 z-50 w-full">
+      <nav className="flex gap-6 text-lg font-medium text-gray-700">
+        <Link to="/" className="hover:text-blue-500">
+          🏠 Home
+        </Link>
+        <Link to="/menu" className="hover:text-blue-500">
+          🍽️ Menu
+        </Link>
+        <Link to="/cart" className="hover:text-blue-500">
+          🛒 Cart
+        </Link>
+        <Link to="/success" className="hover:text-blue-500">
+          ✅ Success
+        </Link>
       </nav>
     </header>
   );
