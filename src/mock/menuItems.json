@@ -1,0 +1,66 @@
+[
+	{
+		"id": 1,
+		"name": "Kung Pao Chicken",
+		"description": "A spicy Sichuan classic with tender chicken and peanuts.",
+		"price": 28.8,
+		"image": "/images/kungpao.jpg",
+		"category": "Chinese"
+	},
+	{
+		"id": 2,
+		"name": "Braised Beef Noodles",
+		"description": "Rich beef broth with handmade noodles and tender chunks of beef.",
+		"price": 22.0,
+		"image": "/images/beef-noodles.jpg",
+		"category": "Chinese"
+	},
+	{
+		"id": 3,
+		"name": "Italian Pizza",
+		"description": "Hand-tossed pizza base with mozzarella and pepperoni.",
+		"price": 45.0,
+		"image": "/images/pizza.jpg",
+		"category": "Western"
+	},
+	{
+		"id": 4,
+		"name": "Caesar Salad",
+		"description": "Crisp romaine lettuce with Parmesan cheese and Caesar dressing.",
+		"price": 18.5,
+		"image": "/images/caesar-salad.jpg",
+		"category": "Western"
+	},
+	{
+		"id": 5,
+		"name": "Teriyaki Chicken",
+		"description": "Grilled chicken glazed with savory-sweet teriyaki sauce.",
+		"price": 32.0,
+		"image": "/images/teriyaki.jpg",
+		"category": "Japanese"
+	},
+	{
+		"id": 6,
+		"name": "Bibimbap",
+		"description": "Korean rice bowl with assorted vegetables, egg, and spicy sauce.",
+		"price": 35.0,
+		"image": "/images/bibimbap.jpg",
+		"category": "Korean"
+	},
+	{
+		"id": 7,
+		"name": "Coca-Cola",
+		"description": "Classic refreshing soda, served cold.",
+		"price": 5.0,
+		"image": "/images/cola.jpg",
+		"category": "Drinks"
+	},
+	{
+		"id": 8,
+		"name": "Mango Pudding",
+		"description": "Sweet and smooth mango dessert — a perfect finisher.",
+		"price": 12.0,
+		"image": "/images/mango-pudding.jpg",
+		"category": "Desserts"
+	}
+]
