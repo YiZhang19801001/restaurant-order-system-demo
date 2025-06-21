@@ -1,7 +1,22 @@
-// src/pages/Menu/Menu.tsx
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../store/slices/cartSlice';
+import toast from 'react-hot-toast';
 import menuItems from '../../data/menuItems.json';
 
 const Menu = () => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item: (typeof menuItems)[0]) => {
+    dispatch(
+      addToCart({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        image: item.image,
+      })
+    );
+    toast.success(`${item.name} added to cart!`);
+  };
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6">🍽️ Our Menu</h1>
@@ -25,7 +40,10 @@ const Menu = () => {
                 <span className="text-lg font-bold text-green-600">
                   ${item.price.toFixed(2)}
                 </span>
-                <button className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+                <button
+                  className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+                  onClick={() => handleAddToCart(item)}
+                >
                   Add to Cart
                 </button>
               </div>
