@@ -1,10 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import type { RootState } from '../../store';
-import { updateQuantity, removeFromCart } from '../../store/slices/cartSlice';
+import {
+  updateQuantity,
+  removeFromCart,
+  clearCart,
+} from '../../store/slices/cartSlice';
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cart.items);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleQuantityChange = (id: number, newQty: number) => {
     dispatch(updateQuantity({ id, quantity: newQty }));
@@ -12,6 +18,12 @@ const Cart = () => {
 
   const handleRemove = (id: number) => {
     dispatch(removeFromCart(id));
+  };
+
+  const handlePlaceOrder = () => {
+    if (items.length === 0) return;
+    dispatch(clearCart());
+    navigate('/success');
   };
 
   const cartTotal = items.reduce(
@@ -83,6 +95,12 @@ const Cart = () => {
             <span>Total:</span>
             <span className="text-green-800">${cartTotal.toFixed(2)}</span>
           </div>
+          <button
+            onClick={handlePlaceOrder}
+            className="mt-4 w-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition"
+          >
+            ✅ Place Order
+          </button>
         </div>
       )}
     </div>
