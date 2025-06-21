@@ -1,8 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../../store';
+import { updateQuantity, removeFromCart } from '../../store/slices/cartSlice';
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cart.items);
+  const dispatch = useDispatch();
+
+  const handleQuantityChange = (id: number, newQty: number) => {
+    dispatch(updateQuantity({ id, quantity: newQty }));
+  };
+
+  const handleRemove = (id: number) => {
+    dispatch(removeFromCart(id));
+  };
 
   const cartTotal = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -35,6 +45,32 @@ const Cart = () => {
                   <p className="text-sm text-gray-500">
                     ${item.price.toFixed(2)} × {item.quantity}
                   </p>
+
+                  <div className="mt-2 flex items-center gap-2">
+                    <button
+                      className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity - 1)
+                      }
+                    >
+                      -
+                    </button>
+                    <span className="px-2">{item.quantity}</span>
+                    <button
+                      className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity + 1)
+                      }
+                    >
+                      +
+                    </button>
+                    <button
+                      className="ml-4 px-2 py-1 text-sm text-red-600 hover:underline"
+                      onClick={() => handleRemove(item.id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
               <div className="text-right font-bold text-green-700">
