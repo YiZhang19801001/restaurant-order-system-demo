@@ -1,5 +1,6 @@
 // src/App.tsx
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout/Layout';
 
 import Home from './pages/Home/Home';
@@ -8,15 +9,19 @@ import Cart from './pages/Cart/Cart';
 import Success from './pages/Success/Success';
 
 function App() {
+  const location = useLocation();
+
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="menu" element={<Menu />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="success" element={<Success />} />
-      </Route>
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="menu" element={<Menu />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="success" element={<Success />} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
   );
 }
 

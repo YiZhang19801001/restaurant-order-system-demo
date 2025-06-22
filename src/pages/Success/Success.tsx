@@ -1,7 +1,12 @@
-// src/pages/Success/Success.tsx
+import PageWrapper from '../../components/PageWrapper';
+
 const Success = () => {
   return (
-    <h1 className="text-blue-600 text-3xl font-bold">✅ Order Success Page</h1>
+    <PageWrapper>
+      <h1 className="text-blue-600 text-3xl font-bold">
+        ✅ Order Success Page
+      </h1>
+    </PageWrapper>
   );
 };
 
