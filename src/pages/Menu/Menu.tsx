@@ -24,7 +24,7 @@ const Menu = () => {
         {menuItems.map((item) => (
           <div
             key={item.id}
-            className="bg-white rounded-xl shadow-md overflow-hidden"
+            className="bg-white p-4 rounded-xl shadow hover:shadow-2xl hover:ring-2 hover:ring-green-400 hover:scale-105 transition-all duration-300"
           >
             <img
               src={item.image}
