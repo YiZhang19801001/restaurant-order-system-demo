@@ -1,12 +1,12 @@
 import PageWrapper from '../../components/PageWrapper';
 import { CheckCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, type Transition } from 'framer-motion';
 
 const Success = () => {
   const variants = {
     initial: { scale: 0.8, opacity: 0 },
-    animate: { scale: 1, opacity: 1, transition: { duration: 0.5, ease: [0, 0, 0.58, 1] } },
-    exit: { scale: 0.8, opacity: 0, transition: { duration: 0.3, ease: [0.42, 0, 1, 1] } },
+    animate: { scale: 1, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } as Transition },
+    exit: { scale: 0.8, opacity: 0, transition: { duration: 0.3, ease: "easeIn" } as Transition },
   };
 
   return (
