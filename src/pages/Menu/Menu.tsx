@@ -3,6 +3,7 @@ import { addToCart } from '../../store/slices/cartSlice';
 import toast from 'react-hot-toast';
 import menuItems from '../../data/menuItems.json';
 import PageWrapper from '../../components/PageWrapper';
+import { Button } from '../../components/ui/button';
 
 const Menu = () => {
   const dispatch = useDispatch();
