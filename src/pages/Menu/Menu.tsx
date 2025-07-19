@@ -33,9 +33,7 @@ const Menu = () => {
               className="shadow hover:shadow-2xl transition-all duration-300"
               whileHover={{ scale: 1.02 }}
             >
-              <Card
-                className="p-0"
-              >
+              <Card>
                 <CardContent className="p-0">
                   <img
                     src={item.image}

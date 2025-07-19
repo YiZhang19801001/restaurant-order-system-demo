@@ -36,11 +36,11 @@ const Cart = () => {
 
   return (
     <PageWrapper>
-      <div className="max-w-3xl mx-auto p-6">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold mb-4"><ShoppingCart className="inline-block mr-2" /> Your Cart</h1>
 
         {items.length === 0 ? (
-          <p className="text-gray-500">Your cart is empty.</p>
+          <p className="text-gray-500 text-center">Your cart is empty.</p>
         ) : (
           <div className="space-y-4">
             {items.map((item) => (
