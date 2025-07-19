@@ -4,6 +4,8 @@ import toast from 'react-hot-toast';
 import menuItems from '../../data/menuItems.json';
 import PageWrapper from '../../components/PageWrapper';
 import { Button } from '../../components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../../components/ui/card';
+import { motion } from 'framer-motion';
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -25,30 +27,39 @@ const Menu = () => {
         <h1 className="text-3xl font-bold mb-6">🍽️ Our Menu</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {menuItems.map((item) => (
-            <div
+            <motion.div
               key={item.id}
-              className="bg-white p-4 rounded-xl shadow hover:shadow-2xl hover:ring-2 hover:ring-green-400 hover:scale-105 transition-all duration-300"
+              className="shadow hover:shadow-2xl hover:ring-2 hover:ring-green-400 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
             >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="h-48 w-full object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-xl font-semibold text-gray-800">
-                  {item.name}
-                </h2>
-                <p className="text-gray-600 text-sm mt-1">{item.description}</p>
-                <div className="mt-4 flex justify-between items-center">
+              <Card
+                className="p-0"
+              >
+                <CardContent className="p-0">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="h-48 w-full object-cover rounded-t-xl"
+                  />
+                </CardContent>
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold text-gray-800">
+                    {item.name}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600 text-sm mt-1">
+                    {item.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardFooter className="mt-4 flex justify-between items-center">
                   <span className="text-lg font-bold text-green-600">
                     ${item.price.toFixed(2)}
                   </span>
                   <Button onClick={() => handleAddToCart(item)}>
                     Add to Cart
                   </Button>
-                </div>
-              </div>
-            </div>
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
