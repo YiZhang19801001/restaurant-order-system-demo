@@ -7,6 +7,7 @@ import {
   clearCart,
 } from '../../store/slices/cartSlice';
 import PageWrapper from '../../components/PageWrapper';
+import { Button } from '../../components/ui/button';
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cart.items);
@@ -78,12 +79,13 @@ const Cart = () => {
                       >
                         +
                       </button>
-                      <button
-                        className="ml-4 px-2 py-1 text-sm text-red-600 hover:underline"
+                      <Button
+                        variant="ghost"
+                        size="sm"
                         onClick={() => handleRemove(item.id)}
                       >
                         Remove
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
