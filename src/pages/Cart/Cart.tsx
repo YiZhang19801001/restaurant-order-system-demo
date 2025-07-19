@@ -9,6 +9,7 @@ import {
 import PageWrapper from '../../components/PageWrapper';
 import { Button } from '../../components/ui/button';
 import { ShoppingCart, CheckCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cart.items);
@@ -43,26 +44,30 @@ const Cart = () => {
           <p className="text-gray-500 text-center">Your cart is empty.</p>
         ) : (
           <div className="space-y-4">
-            {items.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center justify-between bg-white p-4 rounded shadow"
-              >
-                <div className="flex items-center gap-4">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-16 h-16 object-cover rounded"
-                  />
-                  <div>
-                    <h2 className="text-lg font-semibold text-gray-800">
-                      {item.name}
-                    </h2>
-                    <p className="text-sm text-gray-500">
-                      ${item.price.toFixed(2)} × {item.quantity}
-                    </p>
+            <AnimatePresence>
+              {items.map((item) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-center justify-between bg-white p-4 rounded shadow"
+                >
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-16 h-16 object-cover rounded"
+                    />
+                    <div>
+                      <h2 className="text-lg font-semibold text-gray-800">
+                        {item.name}
+                      </h2>
+                      <p className="text-sm text-gray-500">
+                        ${item.price.toFixed(2)} × {item.quantity}
+                      </p>
 
-                    <div className="mt-2 flex items-center gap-2">
                       <button
                         className="px-2 py-1 text-sm bg-gray-200 rounded hover:bg-gray-300"
                         onClick={() =>
@@ -89,12 +94,12 @@ const Cart = () => {
                       </Button>
                     </div>
                   </div>
-                </div>
-                <div className="text-right font-bold text-green-700">
-                  ${(item.price * item.quantity).toFixed(2)}
-                </div>
-              </div>
-            ))}
+                  <div className="text-right font-bold text-green-700">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
 
             <div className="flex justify-between items-center border-t pt-4 mt-6 text-xl font-bold">
               <span>Total:</span>
