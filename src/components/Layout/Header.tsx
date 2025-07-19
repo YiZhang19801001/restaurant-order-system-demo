@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../store/index';
 import { Utensils, ShoppingCart, CheckCircle, Home } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   const totalQty = useSelector((state: RootState) =>
@@ -18,7 +19,9 @@ const Header = () => {
           <Utensils className="mb-1 sm:mr-1 sm:mb-0" /> Menu
         </Link>
         <Link to="/cart" className="flex flex-col items-center text-center flex-1 hover:text-blue-500 sm:flex-row">
-          <ShoppingCart className="mb-1 sm:mr-1 sm:mb-0" /> Cart ({totalQty})
+          <motion.span key={totalQty} initial={{ scale: 1 }} animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 0.3, ease: "easeOut" }}>
+            <ShoppingCart className="mb-1 sm:mr-1 sm:mb-0" />
+          </motion.span> Cart ({totalQty})
         </Link>
         <Link to="/success" className="flex flex-col items-center text-center flex-1 hover:text-blue-500 sm:flex-row">
           <CheckCircle className="mb-1 sm:mr-1 sm:mb-0" /> Success
