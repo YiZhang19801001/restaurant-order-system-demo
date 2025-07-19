@@ -8,6 +8,7 @@ import {
 } from '../../store/slices/cartSlice';
 import PageWrapper from '../../components/PageWrapper';
 import { Button } from '../../components/ui/button';
+import { ShoppingCart, CheckCircle } from 'lucide-react';
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cart.items);
@@ -36,7 +37,7 @@ const Cart = () => {
   return (
     <PageWrapper>
       <div className="max-w-3xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-4">🛒 Your Cart</h1>
+        <h1 className="text-3xl font-bold mb-4"><ShoppingCart className="inline-block mr-2" /> Your Cart</h1>
 
         {items.length === 0 ? (
           <p className="text-gray-500">Your cart is empty.</p>
@@ -99,12 +100,12 @@ const Cart = () => {
               <span>Total:</span>
               <span className="text-green-800">${cartTotal.toFixed(2)}</span>
             </div>
-            <button
+            <Button
               onClick={handlePlaceOrder}
-              className="mt-4 w-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition"
+              className="mt-4 w-full"
             >
-              ✅ Place Order
-            </button>
+              <CheckCircle className="inline-block mr-2" /> Place Order
+            </Button>
           </div>
         )}
       </div>

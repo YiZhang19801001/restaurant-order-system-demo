@@ -6,6 +6,7 @@ import PageWrapper from '../../components/PageWrapper';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../../components/ui/card';
 import { motion } from 'framer-motion';
+import { Utensils } from 'lucide-react';
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -24,12 +25,12 @@ const Menu = () => {
   return (
     <PageWrapper>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold mb-6">🍽️ Our Menu</h1>
+        <h1 className="text-3xl font-bold mb-6"><Utensils className="inline-block mr-2" /> Our Menu</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {menuItems.map((item) => (
             <motion.div
               key={item.id}
-              className="shadow hover:shadow-2xl hover:ring-2 hover:ring-green-400 transition-all duration-300"
+              className="shadow hover:shadow-2xl transition-all duration-300"
               whileHover={{ scale: 1.02 }}
             >
               <Card
