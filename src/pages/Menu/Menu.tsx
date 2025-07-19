@@ -43,12 +43,9 @@ const Menu = () => {
                   <span className="text-lg font-bold text-green-600">
                     ${item.price.toFixed(2)}
                   </span>
-                  <button
-                    className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
-                    onClick={() => handleAddToCart(item)}
-                  >
+                  <Button onClick={() => handleAddToCart(item)}>
                     Add to Cart
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>
